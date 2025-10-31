@@ -31,6 +31,7 @@ const Hero = () => {
         <meta name="keywords" content="real estate, properties for sale, apartments, villas, Nigeria" />
       </Helmet>
     // 🔲 Outer container (the hero section)
+    
     <Box
       w="100%" // Full width of the page
       h="80vh" // Height: 80% of the viewport height
