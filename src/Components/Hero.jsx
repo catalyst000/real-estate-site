@@ -14,6 +14,7 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 // Import your custom navigation bar
 import NavBar from "./NavBar";
@@ -25,8 +26,8 @@ const Hero = () => {
 
     // SEO 
     <>
-          <Helmet>
-        <title>PrimeHomes Realty – Properties for Sale</title>
+      <Helmet>
+        <title>PrimeHomes Realty - Properties for Sale</title>
         <meta name="description" content="Browse luxury apartments, villas, and houses for sale in Nigeria. Find your dream property with PrimeHomes Realty." />
         <meta name="keywords" content="real estate, properties for sale, apartments, villas, Nigeria" />
       </Helmet>
@@ -70,13 +71,13 @@ const Hero = () => {
             mt="5rem" 
             textShadow="2px 2px 4px rgba(0, 0, 0, 0.7)" // Subtle dark shadow for better readability
           >
-            Not Just a{" "}
+            Not Just a      
             <Box as="span" fontWeight="bold">
-              House
+                {" "} House
             </Box>
-            , but a{" "}
+            , but a 
             <Box as="span" fontWeight="bold">
-              Home
+              {" "} Home
             </Box>
             .
           </Text>
@@ -93,6 +94,7 @@ const Hero = () => {
 
           {/* 🔘 Action buttons (Desktop only) */}
           <Flex
+           as={motion.div}
             mr="0.5rem"
             ml="0.5rem"
             w="80%"
@@ -104,6 +106,10 @@ const Hero = () => {
           >
             {/* First Button */}
             <Button
+              as={motion.button}
+              initial={{ x: -150, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               position="relative"
               overflow="hidden"
               h="50px"
@@ -137,6 +143,10 @@ const Hero = () => {
 
             {/* Second Button */}
             <Button
+              as={motion.button}
+              initial={{ x: 150, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               position="relative"
               overflow="hidden"
               h="50px"
@@ -192,7 +202,7 @@ const Hero = () => {
             mr="0.2rem"
             ml="0.2rem"
           >
-            Not Just a <Box as="span" fontWeight="bold"> House</Box>, but a <Box as="span" fontWeight="bold"> Home</Box>.
+            Not Just a {" "}<Box as="span" fontWeight="bold"> House </Box>, but a {" "}<Box as="span" fontWeight="bold"> Home</Box>.
           </Text>
 
           <Text
@@ -343,6 +353,7 @@ const Hero = () => {
 
           {/* Mobile buttons under the tabs */}
           <Flex
+            as={motion.div}
             mr="0.5rem"
             ml="0.5rem"
             w="100%"
@@ -352,6 +363,10 @@ const Hero = () => {
             display={{ base: "flex", lg: "none" }}
           >
             <Button
+              as={motion.button}
+              initial={{ x: -150, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               position="relative"
               overflow="hidden"
               h="50px"
@@ -384,6 +399,10 @@ const Hero = () => {
             </Button>
 
             <Button
+                    as={motion.button}
+              initial={{ x: 150, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               position="relative"
               overflow="hidden"
               h="50px"

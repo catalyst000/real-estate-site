@@ -1,5 +1,6 @@
 import { FaMap, FaStar } from 'react-icons/fa'
 import { Flex, Heading, SimpleGrid, Image, Button, Icon, Box, Text, Grid } from "@chakra-ui/react";
+import { motion } from 'framer-motion';
 
 const properties = [
   {
@@ -104,8 +105,8 @@ const Popular = () => {
         ))}
       </Grid>
       </Box>
-          <Text as="a" align="end" mt={4} fontSize="lg" cursor="pointer" color="blue.500" _hover={{ textDecoration: "underline" }}>
-        View More Properties...
+          <Text as="a" align="end" mt={4} fontSize="md" cursor="pointer" color="blue.500" _hover={{ textDecoration: "underline" }}>
+        See More...
       </Text>
     </Box>
  </Box>

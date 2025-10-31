@@ -1,7 +1,13 @@
 
 import { Box, Flex, Heading, Text, Image, Button, VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const About = () => {
+    const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,  
+  });
   return (
     <Box>
         <Box bg="gray.50" py={16} px={{ base: 6, md: 20 }}>
@@ -19,6 +25,7 @@ const About = () => {
 
       {/* Content Section */}
       <Flex
+      ref={ref}
         direction={{ base: "column", md: "row" }}
         align="center"
         justify="space-between"
@@ -34,7 +41,17 @@ const About = () => {
           h="350px"
         />
 
-        <Box w={{ base: "100%", md: "50%" }}>
+        <Box w={{ base: "100%", md: "50%" }}         
+        as={motion.div}
+        initial={{ x: 150, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 12,
+          duration: 1.4,
+          delay: 0.15, // small delay for natural timing
+        }}>
           <Heading fontSize="2xl" mb={4} color="black">
             Who We Are
           </Heading>
@@ -67,12 +84,22 @@ const About = () => {
 
       {/* Mission & Vision Section */}
       <Flex
+      ref={ref}
         direction={{ base: "column", md: "row" }}
         justify="space-between"
         mt={20}
         gap={10}
       >
         <Box
+        as={motion.div}
+        initial={{ x: -150, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 12,
+          duration: 1.4,
+        }}
           bg="white"
           borderRadius="2xl"
           boxShadow="md"
@@ -91,6 +118,16 @@ const About = () => {
         </Box>
 
         <Box
+         as={motion.div}
+        initial={{ x: 150, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 12,
+          duration: 1.4,
+          delay: 0.15, // small delay for natural timing
+        }}
           bg="white"
           borderRadius="2xl"
           boxShadow="md"
