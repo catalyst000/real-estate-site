@@ -30,7 +30,6 @@ const Hero = () => {
         <meta name="description" content="Browse luxury apartments, villas, and houses for sale in Nigeria. Find your dream property with PrimeHomes Realty." />
         <meta name="keywords" content="real estate, properties for sale, apartments, villas, Nigeria" />
       </Helmet>
-    // 🔲 Outer container (the hero section)
     
     <Box
       w="100%" // Full width of the page
