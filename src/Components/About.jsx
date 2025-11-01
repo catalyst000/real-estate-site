@@ -30,7 +30,9 @@ const About = () => {
         gap={10}
       >
         <Image
-          src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+          src="about-img.jpg"
+          bgPosition="center"
+          bgSize="cover"
           alt="Luxury property"
           borderRadius="2xl"
           boxShadow="lg"
