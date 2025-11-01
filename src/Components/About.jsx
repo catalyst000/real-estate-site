@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const About = () => {
-    const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,  
-  });
+    const { ref : ref1, inView: inView1 } = useInView({ triggerOnce: true,   threshold: 0.2,  });
+   const { ref: ref2, inView: inView2 } = useInView({ triggerOnce: true, threshold: 0.2 });
   return (
-    <Box>
+    <Box id="about-section">
         <Box bg="gray.50" py={16} px={{ base: 6, md: 20 }}>
       {/* Header Section */}
       <VStack spacing={4} textAlign="center" mb={12}>
@@ -25,7 +23,7 @@ const About = () => {
 
       {/* Content Section */}
       <Flex
-      ref={ref}
+      ref={ref1}
         direction={{ base: "column", md: "row" }}
         align="center"
         justify="space-between"
@@ -44,14 +42,8 @@ const About = () => {
         <Box w={{ base: "100%", md: "50%" }}         
         as={motion.div}
         initial={{ x: 150, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{
-          type: "spring",
-          stiffness: 80,
-          damping: 12,
-          duration: 1.4,
-          delay: 0.15, // small delay for natural timing
-        }}>
+        animate={inView1 ? { x: 0, opacity: 1 } : {}}
+        transition={{ duration: 14, ease: "easeOut", type: "spring",}}>
           <Heading fontSize="2xl" mb={4} color="black">
             Who We Are
           </Heading>
@@ -66,7 +58,7 @@ const About = () => {
             and modern technology, we make buying, selling, or renting property
             easier than ever before.
           </Text>
-          <Button
+          <Button id="contact-button"
            as="a"
   href="https://wa.me/2349013172370" 
   target="_blank"
@@ -84,7 +76,7 @@ const About = () => {
 
       {/* Mission & Vision Section */}
       <Flex
-      ref={ref}
+      ref={ref2}
         direction={{ base: "column", md: "row" }}
         justify="space-between"
         mt={20}
@@ -93,13 +85,8 @@ const About = () => {
         <Box
         as={motion.div}
         initial={{ x: -150, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{
-          type: "spring",
-          stiffness: 80,
-          damping: 12,
-          duration: 1.4,
-        }}
+        animate={inView2 ? { x: 0, opacity: 1 } : {}}
+       transition={{ duration: 14, ease: "easeOut", type: "spring",}}
           bg="white"
           borderRadius="2xl"
           boxShadow="md"
@@ -120,14 +107,8 @@ const About = () => {
         <Box
          as={motion.div}
         initial={{ x: 150, opacity: 0 }}
-        animate={inView ? { x: 0, opacity: 1 } : {}}
-        transition={{
-          type: "spring",
-          stiffness: 80,
-          damping: 12,
-          duration: 1.4,
-          delay: 0.15, // small delay for natural timing
-        }}
+        animate={inView2 ? { x: 0, opacity: 1 } : {}}
+         transition={{ duration: 14, ease: "easeOut", type: "spring",}}
           bg="white"
           borderRadius="2xl"
           boxShadow="md"

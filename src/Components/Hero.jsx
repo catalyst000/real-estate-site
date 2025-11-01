@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 // Import your custom navigation bar
 import NavBar from "./NavBar";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Main Hero component
 const Hero = () => {
@@ -32,7 +33,7 @@ const Hero = () => {
         <meta name="keywords" content="real estate, properties for sale, apartments, villas, Nigeria" />
       </Helmet>
     
-    <Box
+    <Box id="hero-section "
       w="100%" // Full width of the page
       h="80vh" // Height: 80% of the viewport height
       bg="lightgrey" // Background color
@@ -106,7 +107,9 @@ const Hero = () => {
           >
             {/* First Button */}
             <Button
-              as={motion.button}
+               as={motion.a}
+              href="#services-section"
+
               initial={{ x: -150, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -143,7 +146,8 @@ const Hero = () => {
 
             {/* Second Button */}
             <Button
-              as={motion.button}
+              as={motion(Link)}
+               to="/Allproperties"
               initial={{ x: 150, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -202,7 +206,7 @@ const Hero = () => {
             mr="0.2rem"
             ml="0.2rem"
           >
-            Not Just a {" "}<Box as="span" fontWeight="bold"> House </Box>, but a {" "}<Box as="span" fontWeight="bold"> Home</Box>.
+            Not Just a <Box as="span" fontWeight="bold"> {" "} House </Box>, but a <Box as="span" fontWeight="bold">{" "} Home</Box>.
           </Text>
 
           <Text
@@ -363,7 +367,8 @@ const Hero = () => {
             display={{ base: "flex", lg: "none" }}
           >
             <Button
-              as={motion.button}
+              as={motion.a}
+              href="#services-section"
               initial={{ x: -150, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -399,7 +404,8 @@ const Hero = () => {
             </Button>
 
             <Button
-                    as={motion.button}
+              as={motion(Link)}
+               to="/Allproperties"
               initial={{ x: 150, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}

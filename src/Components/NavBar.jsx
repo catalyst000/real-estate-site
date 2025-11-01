@@ -16,14 +16,31 @@ import {
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
 
-const NavBar = () => { 
+const NavBar = (sectionId) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+const handleLinkClick = (sectionId) => {
+  onClose(); // Close drawer first
+  setTimeout(() => {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, 400); // wait a bit for Drawer to close (adjust if needed)
+};
+
 
   return (
-    <Box bg="tramsparent" color="white" w="100%" h="60px"px={4} py={3} borderRadius="30px">
+    <Box
+      bg="transparent"
+      color="white"
+      w="100%"
+      h="60px"
+      px={4}
+      py={3}
+      borderRadius="30px"
+    >
       <Flex align="center" justify="space-between">
         {/* Left icon or logo */}
-       <Image src="/logo.png" alt="Logo" h="40px" w="120px"/>
+        <Image src="/logo.png" alt="Logo" h="40px" w="120px" />
         {/* Center links (hidden on mobile) */}
         <HStack
           spacing={8}
@@ -31,16 +48,16 @@ const NavBar = () => {
           justify="center"
           flex="1"
         >
-          <Link href="#" _hover={{ color: "yellow" }}>
+          <Link href="#hero-section" _hover={{ color: "yellow" }}>
             Home
           </Link>
-          <Link href="#" _hover={{ color: "yellow" }}>
+          <Link href="#about-section" _hover={{ color: "yellow" }}>
             About
           </Link>
-          <Link href="#" _hover={{ color: "yellow" }}>
+          <Link href="#services-section" _hover={{ color: "yellow" }}>
             Services
           </Link>
-          <Link href="#" _hover={{ color: "yellow" }}>
+          <Link href="#contact-button" _hover={{ color: "yellow" }}>
             Contact
           </Link>
         </HStack>
@@ -64,16 +81,16 @@ const NavBar = () => {
           <DrawerCloseButton />
           <DrawerBody>
             <VStack spacing={6} mt={12} align="start">
-              <Link href="#" onClick={onClose}>
+              <Link onClick={() => handleLinkClick("hero-section")}>
                 Home
               </Link>
-              <Link href="#" onClick={onClose}>
+              <Link  onClick={() => handleLinkClick("about-section")}>
                 About
               </Link>
-              <Link href="#" onClick={onClose}>
+              <Link   onClick={() => handleLinkClick("services-section")}>
                 Services
               </Link>
-              <Link href="#" onClick={onClose}>
+              <Link  onClick={() => handleLinkClick("contact-button")}>
                 Contact
               </Link>
             </VStack>
@@ -82,6 +99,6 @@ const NavBar = () => {
       </Drawer>
     </Box>
   );
-}
+};
 
-export default NavBar
+export default NavBar;

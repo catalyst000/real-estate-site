@@ -1,6 +1,7 @@
 import { FaMap, FaStar } from 'react-icons/fa'
 import { Flex, Heading, SimpleGrid, Image, Button, Icon, Box, Text, Grid } from "@chakra-ui/react";
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const properties = [
   {
@@ -97,6 +98,7 @@ const Popular = () => {
                 size="sm"
                 w="full"
                 borderRadius="md"
+
               >
                 View Details
               </Button>
@@ -105,7 +107,9 @@ const Popular = () => {
         ))}
       </Grid>
       </Box>
-          <Text as="a" align="end" mt={4} fontSize="md" cursor="pointer" color="blue.500" _hover={{ textDecoration: "underline" }}>
+          <Text align="end" mt={4} fontSize="md" cursor="pointer" color="blue.500" _hover={{ textDecoration: "underline" }}
+          as={Link}
+          to="/Allproperties">
         See More...
       </Text>
     </Box>

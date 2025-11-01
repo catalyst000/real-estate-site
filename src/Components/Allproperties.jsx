@@ -9,8 +9,10 @@ import React from 'react'
   VStack,
   HStack,
   Icon,
+  Flex,
 } from "@chakra-ui/react";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaArrowLeft, FaMapMarkerAlt, FaMousePointer } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Allproperties = () => {
 
@@ -47,6 +49,12 @@ const properties = [
 
   return (
     <Box bg="gray.50" minH="100vh" py={12} px={{ base: 6, md: 20 }}>
+      <Flex justify="start">
+        <Link to="/">
+        <FaArrowLeft/>  
+        </Link>
+        
+      </Flex>
       {/* Page Title */}
       <Heading textAlign="center" mb={10} color="yellow.500">
         Properties for Sale
