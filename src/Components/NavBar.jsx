@@ -30,11 +30,15 @@ const handleLinkClick = (sectionId) => {
 
   return (
     <Box
-      bg="transparent"
+    position="fixed"
+      bg="lightgrey"
+      zIndex="1000"
+     alignItems="center"
+     justifyContent="center"
       color="white"
-      w="100%"
+      w="calc(100% - 10px)"
       h="60px"
-      px={4}
+      px={3}
       py={3}
       borderRadius="30px"
     >
